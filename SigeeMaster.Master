@@ -1,0 +1,310 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SigeeMaster.master.cs" Inherits="Sigee.SigeeMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head runat="server">
+        <title>Sigee</title>
+
+        <!-- Tag Meta para ajustar o responsivo pelo tamanho da tela -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+        
+        <!-- Css do Bootstrap -->
+        <link href="<%# ResolveUrl("~/") %>Css/Bootstrap/bootstrap.css" rel="stylesheet" media="all" />
+        <link href="<%# ResolveUrl("~/") %>Css/AwsomeFonts/css/font-awesome.min.css" rel="stylesheet" />
+        <link href="<%# ResolveUrl("~/") %>Css/Bootstrap/morris-0.4.3.min.css" rel="stylesheet" />
+        <link href="<%# ResolveUrl("~/") %>Css/Bootstrap/Style.css" rel="stylesheet" />
+        <link href="<%# ResolveUrl("~/") %>Css/Bootstrap/Style-Responsivo.css" rel="stylesheet" />
+        <link href="<%# ResolveUrl("~/") %>Css/Bootstrap/DataTable-Bootstrap.css" rel="stylesheet" />
+    </head>
+    <body>
+        <script type="text/javascript">
+            function RedirecionarPagina() {
+                var codigoPerfil = '<%=Session["CodPerfil"]%>';
+
+                if (codigoPerfil == 1) {
+                    window.location = "MapaClientes.aspx";
+                }
+                else {
+                    window.location = "Tarefas.aspx";
+                }
+            }
+        </script>
+
+        <form id="form1" runat="server">
+            <asp:ScriptManager runat="server" ID="spmMaster"></asp:ScriptManager>
+
+            <asp:HiddenField
+                runat="server"
+                ID="hfCodEmpr"
+                Value="" />
+
+            <asp:HiddenField
+                runat="server"
+                ID="hfCodPerfil"
+                Value="" />
+            <asp:HiddenField
+                runat="server"
+                ID="hfCodFunc" />
+
+            <!-- Inicio de seção principal -->
+            <section id="container">
+
+                <!-- Início cabeçalho -->
+                <header class="header black-bg">
+
+                    <!-- Parte do para aparecer e desaparecer o menu (toggle)-->
+                    <div class="sidebar-toggle-box">
+                        <div class="fa fa-bars tooltips" data-placement="right" data-original-title=""></div>
+                    </div>
+                    <!--Fim do Toggle-->
+
+                    <a href="#" class="logo" onclick="RedirecionarPagina();">
+                        <img src="Imagens/icone_logo.png" alt="" height="30" width="30" />
+                        <strong>
+                            Sigee
+                        </strong>
+                    </a>
+                    <div class="av pull-right top-menu">
+                        <ul class="nav top-menu">
+                            <li>
+                                <asp:DropDownList
+                                    runat="server"
+                                    ID="ddlEmpresa"
+                                    CssClass="form-control"
+                                    OnSelectedIndexChanged="ddlEmpresa_SelectedIndexChanged"
+                                    AutoPostBack="true">
+                                </asp:DropDownList>
+                                &nbsp;
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="top-menu">
+                        <ul class="nav pull-right top-menu">
+                            <li>
+                                <label style="color: white">Login:</label>
+                                <asp:Label
+                                    runat="server"
+                                    ID="lblFuncionarioUsuario"
+                                    Text=""
+                                    style="color: white">
+                                </asp:Label>
+                                &nbsp;
+                            </li>
+                        </ul>
+                    </div>
+                </header>
+                <!-- Fim cabeçalho -->
+
+                <aside>
+                    <!-- Menu -->
+                    <div id="sidebar" class="nav-collapse">
+                        <ul class="sidebar-menu" id="nav-accordion">
+                            <li>
+                                Menu
+                            </li>
+                            <!-- Mapas -->
+                            <li class="sub-menu">
+                                <a href="<%# ResolveUrl("~/") %>MapaClientes.aspx">
+                                    <i class="fa fa-map-marker"></i>
+                                    <span>
+                                        Mapas
+                                    </span>
+                                </a>
+                            </li>
+                            <!-- Fim Mapas -->
+
+                            <!-- Tarefas -->
+                            <li class="sub-menu">
+                                <a href="<%# ResolveUrl("~/") %>Tarefas.aspx">
+                                    <i class="fa fa-table"></i>
+                                    <span>
+                                         Tarefa
+                                    </span>
+                                </a>
+                            </li>
+                            <!-- Fim Tarefas -->
+
+                            <!--Cadastros-->
+                            <li class="sub-menu">
+                                <a href="javascript:;">
+                                    <i class="fa fa-file-o"></i>
+                                    <span>
+                                        Cadastros
+                                    </span>
+                                </a>
+                                <ul class="sub">
+                                    <li>
+                                        <a href="<%# ResolveUrl("~/") %>Clientes.aspx">
+                                            <i class="fa fa-caret-right"></i>
+                                            <span>
+                                                 Clientes
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="sub">
+                                    <li>
+                                        <a href="<%# ResolveUrl("~/") %>Usuarios.aspx">
+                                            <i class="fa fa-caret-right"></i>
+                                            <span>
+                                                Usuário
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="sub">
+                                    <li>
+                                        <a href="<%# ResolveUrl("~/") %>Reembolso.aspx">
+                                            <i class="fa fa-caret-right"></i>
+                                            Reembolsos
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="sub">
+                                    <li>
+                                        <a href="<%# ResolveUrl("~/") %>Despesas.aspx">
+                                            <i class="fa fa-caret-right"></i>
+                                            Tipo de Despesa
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--Fim Cadastros-->
+
+                            <!--Relatório-->
+                            <li class="sub-menu">
+                                <a href="javascript:;">
+                                    <i class="fa fa-file-text-o"></i>
+                                    <span>
+                                        Relatórios
+                                    </span>
+                                </a>
+                                <ul class="sub">
+                                    <li>
+                                        <a href="<%# ResolveUrl("~/") %>RelatorioTarefa.aspx">
+                                            <span>
+                                                Relatório de Tarefas
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="sub">
+                                    <li>
+                                        <a href="<%# ResolveUrl("~/") %>RelatorioReembolso.aspx">
+                                            Relatório de Reembolsos
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="sub">
+                                    <li>
+                                        <a href="<%# ResolveUrl("~/") %>RelatorioQuantidadeUsuarioEmpresa.aspx">
+                                            Relatório de Qtd. Usuários
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--FIm Relatório-->
+
+                            <!--Administrativo-->
+                            <li class="sub-menu">
+                                <a href="javascript:;">
+                                    <i class="fa fa-gears"></i>
+                                    <span>
+                                        Administrativo
+                                    </span>
+                                </a>
+                                <ul class="sub">
+                                    <li>
+                                        <a href="/Sigee/TiposClientes.aspx">
+                                            <i class="fa fa-caret-right"></i>
+                                            <span>
+                                                Tipo de Cliente
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="sub">
+                                    <li>
+                                        <a href="<%# ResolveUrl("~/") %>Cargo.aspx">
+                                            <i class="fa fa-caret-right"></i>
+                                            <span>
+                                                Cargo
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="sub">
+                                    <li>
+                                        <a href="<%# ResolveUrl("~/") %>Perfils.aspx">
+                                            <i class="fa fa-caret-right"></i>
+                                            <span>
+                                                Perfil
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="sub">
+                                    <li>
+                                        <a href="<%# ResolveUrl("~/") %>Empresa.aspx">
+                                            <i class="fa fa-caret-right"></i>
+                                            <span>
+                                                Empresa
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--Fim Administrativo-->
+                            <li class="sub-menu">
+                                <a href="<%# ResolveUrl("~/") %>Login.aspx">
+                                    <i class="fa-arrow-circle-o-left"></i>
+                                    <span>
+                                        Logout
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Fim Menu -->
+                </aside>
+
+                <!-- Seção do conteúdo que das páginas filhas -->
+                <section id="main-content">
+                    <section class="wrapper" id="top">
+                        <div>
+                            <asp:ContentPlaceHolder ID="cphConteudoPrincipal" runat="server">
+        
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </section>
+                </section>
+                <!-- Fim da seção do conteúdo das páginas filhas -->
+
+                <!-- Rodapé-->
+                <footer class="site-footer">
+                    <div class="text-center" style="text-align:center;">
+                        &copy <%: DateTime.Now.Year.ToString() %> - Sigee
+                        <a href="#top" class="go-top">
+                            <i class="fa fa-angle-up"></i>
+                        </a>
+                    </div>
+                </footer>
+                <!-- Fim rodapé -->
+
+            <!-- Fim de seção principal -->
+            </section>
+
+            <!-- Scripts Bootstrap -->
+            <script src="<%# ResolveUrl("~/") %>Scripts/Bootstrap/jQuery.js"></script>
+            <script src="<%# ResolveUrl("~/") %>Scripts/Bootstrap/jquery-1.9.1.min.js"></script>
+            <script src="<%# ResolveUrl("~/") %>Scripts/Bootstrap/Bootstrap-min.js"></script>
+            <script class="include" src="<%# ResolveUrl("~/") %>Scripts/Bootstrap/jQuery.dcjqaccordion.js"></script>
+            <script src="<%# ResolveUrl("~/") %>Scripts/Bootstrap/jQueryScroll.js"></script>
+            <script src="<%# ResolveUrl("~/") %>Scripts/Bootstrap/jQueryNiceScroll.js"></script>
+            <script src="<%# ResolveUrl("~/") %>Scripts/Bootstrap/Morris-min.js"></script>
+            <script src="<%# ResolveUrl("~/") %>Scripts/Bootstrap/ScriptTheme.js"></script>
+            <script src="<%# ResolveUrl("~/") %>Scripts/Bootstrap/jQuery-DataTable.js"></script>
+        </form>
+    </body>
+</html>
