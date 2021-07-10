@@ -10,129 +10,127 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cphConteudoPrincipal" runat="server">
     <asp:MultiView runat="server" ID="multiview">
         <asp:View ID="view" runat="server">
-            <asp:HiddenField
-                runat="server"
-                ID="hfCodUsu" />
-            <div class="row mt">
+            <asp:HiddenField runat="server" ID="hfCodUsu" />
+            <asp:DropDownList runat="server" Visible="false" ID="ddlAtivo" CssClass="form-control" required> 
+                 <asp:ListItem Text="Selecione" Value="1" Selected="True"></asp:ListItem>
+            </asp:DropDownList>
+
+            <div class="row">
                 <div class="col-lg-12">
-                    <asp:Panel 
-                        runat="server" 
-                        ID="pnlAviso"
-                        CssClass="alert alert-info"
-                        Visible="false">
-                            <asp:Label
-                                runat="server"
-                                ID="lblAviso">
-                            </asp:Label>
+                    <div class="form-panel">
+                            <button class="btn btn-primary"  onclick="javascript: location.href='Usuarios.aspx'">Voltar</button>
+                         
+                        <asp:Button ID="Button1" runat="server" Text="Salvar" CssClass="btn btn-primary" OnClick="btnSalvar_Click" />
+                                        </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <asp:Panel runat="server" ID="pnlAviso" CssClass="alert alert-info" Visible="false">
+                            <asp:Label runat="server" ID="lblAviso"></asp:Label>
                     </asp:Panel>
+
                     <div class="form-panel">
                         <h4 class="mb title">
                             Dados do Funcionário
                         </h4>      
                         <div class="form-horizontal style-form">
                             <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Nome do Funcionário:
-                                </label>
+                                <label class="col-sm-2 col-sm-2 control-label">Nome do Funcionário:</label>
                                 <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtNomeFuncionario"
-                                        CssClass="form-control"
-                                        required="required">
-                                    </asp:TextBox>
+                                    <asp:TextBox runat="server" ID="txtNomeFuncionario" CssClass="form-control" required="required"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
+
+                        <%--#### CPF E TELEFONE--%>
+
                         <div class="form-horizontal style-form">
                             <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    CPF/CNPJ:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtCpfCnpj"
-                                        CssClass="form-control">
-                                    </asp:TextBox>
+                                <label class="col-sm-2 col-sm-2 control-label">CPF/CNPJ:</label>
+                                <div class="col-sm-4">
+                                    <asp:TextBox runat="server" ID="txtCpfCnpj" CssClass="form-control"></asp:TextBox>
+                                </div>
+                                <label class="col-sm-2 col-sm-2 control-label" style="text-align:right">Celular: </label>
+                                <div class="col-sm-4">
+                                    <asp:TextBox runat="server" ID="txtCelular" CssClass="form-control" ClientIDMode="Static" onkeydown="mascara( this )" onkeyup="mascara( this )" required="required"></asp:TextBox>
                                 </div>
                             </div>
                         </div> 
+
+
+
                         <div class="form-horizontal style-form">
                             <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                   Celular:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtCelular"
-                                        CssClass="form-control"
-                                        ClientIDMode="Static"
-                                        onkeydown="mascara( this )" onkeyup="mascara( this )"
-                                        required="required">
-                                    </asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-horizontal style-form">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                   Cargo:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:DropDownList
-                                        runat="server"
-                                        ID="ddlCargo"
-                                        CssClass="form-control"
-                                        AppendDataBoundItems="true">
+                                <label class="col-sm-2 col-sm-2 control-label">Cargo:</label>
+                                <div class="col-sm-4">
+                                    <asp:DropDownList runat="server" ID="ddlCargo" CssClass="form-control" AppendDataBoundItems="true">
                                             <asp:ListItem Text="Selecione" Value="0"></asp:ListItem>
                                     </asp:DropDownList>
                                 </div>
+                                <asp:Panel runat="server" ID="pnlDataCadastro" CssClass="form-horizontal style-form">
+
+                                    <label class="col-sm-2 col-sm-2 control-label" style="text-align:right">Data de Lançamento: </label>
+                                    <div class="col-sm-3">
+                                        <asp:TextBox runat="server" ID="txtDataCadastro" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                    </div>
+                                </asp:Panel>
                             </div>
                         </div>
+
+                        <%--### Logradouro Inicial ####--%>
+            <div class="row">
+                <div class="col-lg-12">
+                        <h4 class="mb title">Logradouro Inicial</h4>
                         <div class="form-horizontal style-form">
                             <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                   Ativo:
-                                </label>
+                                <label class="col-sm-2 col-sm-2 control-label">Logradouro:</label>
                                 <div class="col-sm-10">
-                                    <asp:DropDownList
-                                        runat="server"
-                                        ID="ddlAtivo"
-                                        CssClass="form-control"
-                                        required>
-                                            <asp:ListItem
-                                                Text="Sim"
-                                                Value="1" 
-                                                Selected="True">
-                                            </asp:ListItem>
-                                            <asp:ListItem
-                                                Text="Não"
-                                                Value="0">
-                                            </asp:ListItem>
-                                    </asp:DropDownList>
+                                    <asp:TextBox runat="server" ID="txtLogradouroInicial" CssClass="form-control" required="required"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Latitude:</label>
+                                <div class="col-sm-4">
+                                    <asp:TextBox runat="server" ID="txtLatitudeIni" CssClass="form-control" required="required"></asp:TextBox>
+                                </div>
+                                 <label class="col-sm-2 col-sm-2 control-label" style="text-align:right">Longitude:</label>
+                                <div class="col-sm-4">
+                                    <asp:TextBox runat="server" ID="txtLongitudeIni" CssClass="form-control" required="required"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
-                        <asp:Panel
-                            runat="server"
-                            ID="pnlDataCadastro"
-                            CssClass="form-horizontal style-form">
-                                <div class="form-group">
-                                    <label class="col-sm-2 col-sm-2 control-label">
-                                       Data de Lançamento:
-                                    </label>
-                                    <div class="col-sm-10">
-                                        <asp:TextBox
-                                            runat="server"
-                                            ID="txtDataCadastro"
-                                            CssClass="form-control"
-                                            Enabled="false">
-                                        </asp:TextBox>
-                                    </div>
+                </div>
+            </div>
+            
+                        <%--### LOGRADOURO FINAL--%>
+                        
+             <div class="row ">
+                <div class="col-lg-12">
+                        <h4 class="mb title">Logradouro Final</h4>
+                        <div class="form-horizontal style-form">
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Logradouro:</label>
+                                <div class="col-sm-10">
+                                    <asp:TextBox runat="server" ID="txtLogradouroFim" CssClass="form-control" required="required"> </asp:TextBox>
                                 </div>
-                        </asp:Panel>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Latitude:</label>
+                                <div class="col-sm-4">
+                                    <asp:TextBox runat="server" ID="txtLatitudeFim" CssClass="form-control" required="required"></asp:TextBox>
+                                </div>
+                                <label class="col-sm-2 col-sm-2 control-label" style="text-align:right">Longitude:</label>
+                                <div class="col-sm-4">
+                                    <asp:TextBox runat="server" ID="txtLongitudeFim" CssClass="form-control" required="required"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>                    
+                        
+
                         <asp:Panel
                             runat="server"
                             ID="pnlCodEmpr"
@@ -155,200 +153,67 @@
                    </div>
                 </div>
             </div>
-            <div class="row mt">
+
+
+            <div class="row">
                 <div class="col-lg-12">
                     <div class="form-panel">
                         <h4 class="mb title">
                             Dados do Usuário
                         </h4>
+
                         <div class="form-horizontal style-form">
                             <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Email:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtEmail"
-                                        CssClass="form-control"
-                                        required="required">
-                                    </asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-horizontal style-form">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Senha:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtSenha"
-                                        TextMode="Password"
-                                        CssClass="form-control"
-                                        required="required">
-                                    </asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-horizontal style-form">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Perfil:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:DropDownList
-                                        runat="server"
-                                        ID="ddlPergil"
-                                        CssClass="form-control"
-                                        AppendDataBoundItems="true"
-                                        OnSelectedIndexChanged="ddlPergil_SelectedIndexChanged"
-                                        AutoPostBack="true"
-                                        required>
+                                <label class="col-sm-2 col-sm-2 control-label"> Perfil:</label>
+                                <div class="col-sm-4">
+                                    <asp:DropDownList runat="server" ID="ddlPergil" CssClass="form-control" AppendDataBoundItems="true"
+                                        OnSelectedIndexChanged="ddlPergil_SelectedIndexChanged" AutoPostBack="true" required>
                                             <asp:ListItem Text="Selecione" Value="0"></asp:ListItem>
                                     </asp:DropDownList>
                                 </div>
-                            </div>
-                             <asp:Panel
-                                runat="server"
-                                ID="pnlSupervisor"
-                                CssClass="form-horizontal style-form">
-                                    <div class="form-group">
-                                        <asp:Label 
-                                            runat="server" 
-                                            ID="lblSuperior" 
-                                            CssClass="col-sm-2 col-sm-2 control-label"
-                                            Text="Supervisor:">
-                                        </asp:Label>
-                                        <div class="col-sm-10">
-                                            <asp:DropDownList
-                                                runat="server"
-                                                ID="ddlSupervisor"
-                                                CssClass="form-control"
-                                                AppendDataBoundItems="true"
-                                                required>
+                                 <asp:Panel runat="server" ID="pnlSupervisor" CssClass="form-horizontal style-form">
+                                     <label class="col-sm-2 col-sm-2 control-label" style="text-align:right"> Supervisor:</label>
+                                <%--<asp:Label runat="server" ID="lblSuperior" CssClass="col-sm-2 col-sm-2 control-label" Text="Supervisor:"></asp:Label>--%>
+                                        <div class="col-sm-4">
+                                            <asp:DropDownList runat="server" ID="ddlSupervisor" CssClass="form-control" AppendDataBoundItems="true" required>
                                                     <asp:ListItem Text="Selecione" Value="0"></asp:ListItem>
                                             </asp:DropDownList>
                                         </div>
-                                    </div>
-                        </asp:Panel>
+                                </asp:Panel>
+
+                            </div>
+                            
                         </div>  
+
+
+                        <div class="form-horizontal style-form">
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Email:</label>
+                                <div class="col-sm-5">
+                                    <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" required="required"></asp:TextBox>
+                                </div>
+                                <label class="col-sm-1 col-sm-1 control-label"> Senha:</label>
+                                <div class="col-sm-4">
+                                    <asp:TextBox runat="server" ID="txtSenha" TextMode="Password" CssClass="form-control" required="required"></asp:TextBox>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        
                     </div>
                  </div>
             </div>
-            <div class="row mt">
+
+            
+            <div class="row">
                 <div class="col-lg-12">
-                    <div class="form-panel">
-                        <h4 class="mb title">
-                            Dados Logradouro Inicial Padrão
-                        </h4>
-                        <div class="form-horizontal style-form">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Logradouro:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtLogradouroInicial"
-                                        CssClass="form-control"
-                                        required="required">
-                                    </asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Latitude:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtLatitudeIni"
-                                        CssClass="form-control"
-                                        required="required">
-                                    </asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Longitude:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtLongitudeIni"
-                                        CssClass="form-control"
-                                        required="required">
-                                    </asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt">
-                <div class="col-lg-12">
-                    <div class="form-panel">
-                        <h4 class="mb title">
-                            Dados Logradouro Final Padrão
-                        </h4>
-                        <div class="form-horizontal style-form">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Logradouro:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtLogradouroFim"
-                                        CssClass="form-control"
-                                        required="required">
-                                    </asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Latitude:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtLatitudeFim"
-                                        CssClass="form-control"
-                                        required="required">
-                                    </asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Longitude:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtLongitudeFim"
-                                        CssClass="form-control"
-                                        required="required">
-                                    </asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt">
-                <div class="col-lg-12">
-                    <p style="text-align: center;">
-                        <asp:Button 
-                            ID="btnSalvar" 
-                            runat="server" 
-                            Text="Salvar" 
-                            CssClass="btn btn-primary"
-                            OnClick="btnSalvar_Click" />
+                    <p style="text-align: center; padding-bottom:20px;">
+                        <asp:Button ID="btnSalvar" runat="server" Text="Salvar" CssClass="btn btn-primary" OnClick="btnSalvar_Click" />
                     </p>
                 </div>
             </div>
+
 
             <script type="text/javascript">
                 //Função para auto completar a caixa de texto do endereço, buscando na API do Google de AutoComplete dos endereços

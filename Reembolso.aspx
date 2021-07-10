@@ -9,50 +9,41 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cphConteudoPrincipal" runat="server">
     <asp:MultiView runat="server" ID="multiview">
         <asp:View ID="view" runat="server">
-            <div class="row mt">
+            
+            <div class="row ">
                 <div class="col-lg-12">
                     <div class="form-panel">
-                        <h4 class="mb title">Pesquisar
-                        </h4>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="form-panel">
-                                    <div class="form-horizontal style-form">
-                                        <div class="form-group">
-                                            <label class="col-sm-2 col-sm-2 control-label">
-                                                Palavra-chave:
-                                            </label>
-                                            <div class="col-sm-10">
-                                                <asp:TextBox ID="txtPesquisar" runat="server" CssClass="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <p style="text-align: center">
-                                            <asp:Button ID="btnPesquisar" runat="server" Text="Pesquisar" CssClass="btn btn-primary" OnClick="btnPesquisar_Click" />
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="form-group">
+                                          
+                            <asp:Button ID="btnIncluir" runat="server" Text="Novo Reembolso" CssClass="btn btn-primary" OnClick="btnIncluir_Click" />
                         </div>
-                    </div>
+                  </div>
                 </div>
             </div>
+
             &nbsp;
-            <div class="row mt">
+            <div class="row" style="padding-bottom:20px;">
                 <div class="col-lg-12">
-                    <asp:Panel
-                        runat="server"
-                        ID="pnlAviso"
-                        CssClass="alert alert-info"
-                        Visible="false">
-                        <asp:Label
-                            runat="server"
-                            ID="lblAviso">
-                        </asp:Label>
+                    <asp:Panel runat="server" ID="pnlAviso" CssClass="alert alert-info" Visible="false">
+                        <asp:Label runat="server" ID="lblAviso"> </asp:Label>
                     </asp:Panel>
                     <div class="form-panel">
-                        <h4 class="mb title">Relação de Reembolsos
-                        </h4>
+                        <h4 class="mb title">Relação de Reembolsos</h4>
                         <div class="row">
+                            <div class="col-lg-12" style="padding-bottom:10px;">
+                                <div class="form-group">
+                                    <div class="col-sm-2">        
+                                     <asp:Button ID="Button1" runat="server" Text="Pesquisar" CssClass="btn btn-primary" OnClick="btnPesquisar_Click" />
+                                    </div>
+                                    <div class="col-sm-10">
+                                                
+                                                <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
+                                     </div>
+                               </div>
+                                       
+                            </div>
+
+
                             <div class="col-lg-12">
                                 <div class="panel panel-default">
                                     <div class="panel-body">
@@ -73,72 +64,6 @@
                                                 PagerStyle-VerticalAlign="Bottom">
                                                 <PagerStyle Font-Size="Medium" />
                                                 <Columns>
-                                                    <asp:BoundField
-                                                        DataField="CodReembolsoDespesa"
-                                                        HeaderText="Código Reembolso" />
-                                                    <asp:TemplateField HeaderText="Funcionario">
-                                                        <ItemTemplate>
-                                                            <asp:Label
-                                                                runat="server"
-                                                                ID="lblNomeFuncGrid"
-                                                                Text='<%#Eval("Funcionario.NomeFunc").ToString() %>'>
-                                                            </asp:Label>
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Despesa">
-                                                        <ItemTemplate>
-                                                            <asp:Label
-                                                                runat="server"
-                                                                ID="lblNomeDespesaGrid"
-                                                                Text='<%# Eval("TipoDespesa.NomeDespesa").ToString() %>'>
-                                                            </asp:Label>
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Valor">
-                                                        <ItemTemplate>
-                                                            <asp:Label
-                                                                runat="server"
-                                                                ID="lblValorReembolsoGrid"
-                                                                Text='<%# Convert.ToDouble(Eval("ValorDespesa").ToString()).ToString("c") %>'>
-                                                            </asp:Label>
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Data">
-                                                        <ItemTemplate>
-                                                            <asp:Label
-                                                                runat="server"
-                                                                ID="lblDataGrid"
-                                                                Text='<%# Convert.ToDateTime(Eval("DtHrCadReembolsoDespesa").ToString()).ToString("dd/MM/yyyy") %>'>
-                                                            </asp:Label>
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Status" Visible="false">
-                                                        <ItemTemplate>
-                                                            <asp:Label
-                                                                runat="server"
-                                                                ID="lblStatusrid"
-                                                                Text='<%# (Eval("FlagAutorizado").ToString().Equals("0")?"Não Autorizado":"Autorizado") %>'>
-                                                            </asp:Label>
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Pago">
-                                                        <ItemTemplate>
-                                                            <asp:Label
-                                                                runat="server"
-                                                                ID="lblStatusPgto"
-                                                                Text='<%# (Eval("Pago").ToString().ToLower().Equals("0")?"Não":"Sim") %>'>
-                                                            </asp:Label>
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Situação">
-                                                        <ItemTemplate>
-                                                            <asp:Label
-                                                                runat="server"
-                                                                ID="lblStatusAutorizado"
-                                                                Text='<%# (Eval("FlagAutorizado").ToString().Equals("0")?"Não Autorizado":"Autorizado") %>'>
-                                                            </asp:Label>
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>
                                                     <asp:TemplateField>
                                                         <ItemTemplate>
                                                             <asp:ImageButton
@@ -160,6 +85,81 @@
                                                                 CommandArgument='<%#Eval("CodReembolsoDespesa").ToString() %>' />
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
+
+
+                                                    <asp:BoundField DataField="CodReembolsoDespesa" HeaderText="Código" />
+                                                    <asp:TemplateField HeaderText="Funcionario">
+                                                        <ItemTemplate>
+                                                            <asp:Label
+                                                                runat="server"
+                                                                ID="lblNomeFuncGrid"
+                                                                Text='<%#Eval("Funcionario.NomeFunc").ToString() %>'>
+                                                            </asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+
+                                                    <asp:TemplateField HeaderText="Despesa">
+                                                        <ItemTemplate>
+                                                            <asp:Label
+                                                                runat="server"
+                                                                ID="lblNomeDespesaGrid"
+                                                                Text='<%# Eval("TipoDespesa.NomeDespesa").ToString() %>'>
+                                                            </asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+
+                                                    <asp:TemplateField HeaderText="Valor">
+                                                        <ItemTemplate>
+                                                            <asp:Label
+                                                                runat="server"
+                                                                ID="lblValorReembolsoGrid"
+                                                                Text='<%# Convert.ToDouble(Eval("ValorDespesa").ToString()).ToString("c") %>'>
+                                                            </asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+
+                                                    <asp:TemplateField HeaderText="Data">
+                                                        <ItemTemplate>
+                                                            <asp:Label
+                                                                runat="server"
+                                                                ID="lblDataGrid"
+                                                                Text='<%# Convert.ToDateTime(Eval("DtHrCadReembolsoDespesa").ToString()).ToString("dd/MM/yyyy") %>'>
+                                                            </asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+
+                                                    <asp:TemplateField HeaderText="Status" Visible="false">
+                                                        <ItemTemplate>
+                                                            <asp:Label
+                                                                runat="server"
+                                                                ID="lblStatusrid"
+                                                                Text='<%# (Eval("FlagAutorizado").ToString().Equals("0")?"Não Autorizado":"Autorizado") %>'>
+                                                            </asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+
+                                                    <asp:TemplateField HeaderText="Pago">
+                                                        <ItemTemplate>
+                                                            <asp:Label
+                                                                runat="server"
+                                                                ID="lblStatusPgto"
+                                                                Text='<%# (Eval("Pago").ToString().ToLower().Equals("0")?"Não":"Sim") %>'>
+                                                            </asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+
+                                                    <asp:TemplateField HeaderText="Situação">
+                                                        <ItemTemplate>
+                                                            <asp:Label
+                                                                runat="server"
+                                                                ID="lblStatusAutorizado"
+                                                                Text='<%# (Eval("FlagAutorizado").ToString().Equals("0")?"Não Autorizado":"Autorizado") %>'>
+                                                            </asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+
+                                                    
+
                                                 </Columns>
                                             </asp:GridView>
                                         </div>
@@ -170,18 +170,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row mt">
-                <div class="col-lg-12">
-                    <p style="text-align: center;">
-                        <asp:Button
-                            ID="btnIncluir"
-                            runat="server"
-                            Text="Incluir"
-                            CssClass="btn btn-primary"
-                            OnClick="btnIncluir_Click" />
-                    </p>
-                </div>
-            </div>
+          
         </asp:View>
     </asp:MultiView>
 </asp:Content>

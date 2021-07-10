@@ -14,9 +14,9 @@
 
                 <div class="col-lg-11">
                     <div class="form-panel">
-                                 <div class="form-group">
-                                    <asp:Button ID="Button1" runat="server" Text="Novo Usuário" CssClass="btn btn-primary" OnClick="btnIncluir_Click" />
-                                 </div>
+                        <div class="form-group">
+                        <asp:Button ID="Button1" runat="server" Text="Novo Usuário" CssClass="btn btn-primary" OnClick="btnIncluir_Click" />
+                        </div>
 
                     </div>
                 </div>
