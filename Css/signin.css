@@ -38,3 +38,58 @@
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+
+
+
+/*####### Novo Login #########*/
+
+{
+    transition: .3s all ease;
+    color: $primary;
+    &:hover, &:focus
+
+{
+    text-decoration: none !important;
+    outline: none !important;
+    box-shadow: none;
+    color: $primary;
+}
+
+}
+
+h1, h2, h3, h4, h5,
+.h1, .h2, .h3, .h4, .h5 {
+    line-height: 1.5;
+    font-weight: 400;
+    font-family: $font-primary;
+    color: $black;
+}
+
+.bg-primary {
+    background: $primary !important;
+}
+
+.ftco-section {
+    padding: 7em 0;
+}
+
+.ftco-no-pt {
+    padding-top: 0;
+}
+
+.ftco-no-pb {
+    padding-bottom: 0;
+}
+
+//HEADING SECTION
+.heading-section {
+    font-size: 28px;
+    color: $black;
+}
+
+.loginNovo{
+    background:#ffffff;
+    border-radius:10px;
+
+}

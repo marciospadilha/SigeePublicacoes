@@ -36,8 +36,7 @@
                                      <asp:Button ID="Button1" runat="server" Text="Pesquisar" CssClass="btn btn-primary" OnClick="btnPesquisar_Click" />
                                     </div>
                                     <div class="col-sm-10">
-                                                
-                                                <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtPesquisar" runat="server" CssClass="form-control"></asp:TextBox>
                                      </div>
                                </div>
                                        

@@ -19,9 +19,8 @@
                 <div class="col-lg-12">
                     <div class="form-panel">
                             <button class="btn btn-primary"  onclick="javascript: location.href='Usuarios.aspx'">Voltar</button>
-                         
-                        <asp:Button ID="Button1" runat="server" Text="Salvar" CssClass="btn btn-primary" OnClick="btnSalvar_Click" />
-                                        </div>
+                            <asp:Button ID="Button1" runat="server" Text="Salvar" CssClass="btn btn-primary" OnClick="btnSalvar_Click" />
+                    </div>
                 </div>
             </div>
 

@@ -258,9 +258,9 @@
                             <!--Fim Administrativo-->
                             <li class="sub-menu">
                                 <a href="<%# ResolveUrl("~/") %>Login.aspx">
-                                    <i class="fa-arrow-circle-o-left"></i>
+                                    <i class="fa fa-sign-out" aria-hidden="true"></i>
                                     <span>
-                                        Logout
+                                        Sair
                                     </span>
                                 </a>
                             </li>

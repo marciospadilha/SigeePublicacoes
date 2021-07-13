@@ -14,58 +14,44 @@
     </head>
     <body>
         <div class="container">
-            <asp:Panel 
-                runat="server" 
-                ID="pnlAviso"
-                CssClass="alert alert-info alert-dismissable"
-                Visible="false">
+            <asp:Panel runat="server" ID="pnlAviso" CssClass="alert alert-info alert-dismissable" Visible="false">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-                    <asp:Label
-                        runat="server"
-                        ID="lblAviso">
-                    </asp:Label>
+                    <asp:Label runat="server" ID="lblAviso"></asp:Label>
             </asp:Panel>
-            <form id="form1" runat="server" class="form-signin">
-                <img src="Imagens/logoSigee.png" />
-                <h2 class="form-signin-heading">Faça o Login</h2>
-                <asp:Label
-                    runat="server" 
-                    ID="lblEmail"
-                    CssClass="sr-only"
-                    Text="Email"
-                    AssociatedControlID="txtEmail">
-                </asp:Label>
 
-                <asp:TextBox
-                    runat="server"
-                    ID="txtEmail"
-                    CssClass="form-control"
-                    ClientIDMode="Static">
-                </asp:TextBox>
 
-                <asp:Label
-                    runat="server" 
-                    ID="lblSenha"
-                    CssClass="sr-only"
-                    Text="Senha"
-                    AssociatedControlID="txtSenha">
-                </asp:Label>
+            <div class="row" style="text-align:center; padding-top:40px;">
+                <div class="col-lg-4"></div>
+                    <div class="col-lg-4 loginNovo">
 
-                <asp:TextBox
-                    runat="server"
-                    ID="txtSenha"
-                    CssClass="form-control"
-                    TextMode="Password"
-                    ClientIDMode="Static">
-                </asp:TextBox>
+                    <form id="form1" runat="server" class="form-signin">
+                
+                
+                        <img src="Imagens/logoSigee.png" />
 
-                <asp:Button
-                    runat="server"
-                    ID="btnEntrar"
-                    CssClass="btn btn-lg btn-danger btn-block" 
-                    Text="Entrar"
-                    OnClick="btnEntrar_Click"/>
-            </form>
+                        <h2 class="form-signin-heading">Login</h2>
+
+                        <div class="row">
+                            <div class="col-lg-12 form-group">
+                                <asp:Label runat="server" ID="lblEmail" CssClass="sr-only" Text="Email" AssociatedControlID="txtEmail"></asp:Label>
+                                <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" ClientIDMode="Static"> </asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 form-group">
+                        
+                                <asp:Label runat="server" ID="lblSenha" CssClass="sr-only" Text="Senha" AssociatedControlID="txtSenha"></asp:Label>
+                                <asp:TextBox runat="server" ID="txtSenha" CssClass="form-control" TextMode="Password" ClientIDMode="Static"></asp:TextBox>
+                            </div>
+                        </div>
+                        <asp:Button runat="server" ID="btnEntrar" CssClass="btn btn-lg btn-danger btn-block" Text="Entrar" OnClick="btnEntrar_Click"/>
+    
+                
+                    </form>
+
+                   </div>
+                <div class="col-lg-4"></div>
+            </div>
         </div>
         <script src="Scripts/Bootstrap/jQuery.js"></script>
         <script src="Scripts/Bootstrap/Bootstrap-min.js"></script>

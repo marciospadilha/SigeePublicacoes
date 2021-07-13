@@ -6,190 +6,130 @@
     CodeBehind="Tarefa_Action.aspx.cs"
     Inherits="Sigee.Tarefa_Action" %>
 
+
+
+ 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="cphConteudoPrincipal" runat="server">
     <asp:MultiView runat="server" ID="multiview">
         <asp:View ID="view" runat="server">
             <script src="Scripts/BootBox/bootbox.min.js"></script>
-            <div class="row mt">
-                <asp:HiddenField
-                    runat="server"
-                    ID="hfCodDepesaKm" />
-                <asp:HiddenField
-                    runat="server"
-                    ID="hfQtdKm" />
-                <asp:HiddenField
-                    runat="server"
-                    ID="hfCodFunc" />
+
+
+            <div class="row">
                 <div class="col-lg-12">
-                    <asp:Panel
-                        runat="server"
-                        ID="pnlAviso"
-                        CssClass="alert alert-info"
-                        Visible="false">
-                        <asp:Label
-                            runat="server"
-                            ID="lblAviso">
-                        </asp:Label>
-                    </asp:Panel>
                     <div class="form-panel">
-                        <h4 class="mb title">Dados da Tarefa
-                        </h4>
+                            <asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClientClick="bootbox.alert('Oi', function() { return false;});" OnClick="btnSalvar_Click" CssClass="btn btn-primary" />
+                        &nbsp;
+                        <asp:Button ID="btnExcluir" runat="server" Text="Excluir" OnClientClick="return  confirm('Deseja realmente excluir a tarefa?');" OnClick="btnExcluir_Click" CssClass="btn btn-primary" />
+                        &nbsp;
+                        <asp:Button ID="btnGerarOS" runat="server" Text="Gerar O. S." CssClass="btn btn-primary" OnClick="btnGerarOS_Click" />
+                          
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <asp:HiddenField runat="server" ID="hfCodDepesaKm" />
+                <asp:HiddenField runat="server" ID="hfQtdKm" />
+                <asp:HiddenField runat="server" ID="hfCodFunc" /> 
+                <asp:DropDownList runat="server" ID="ddlTarefaAtiva" CssClass="form-control" Visible="false">
+                                <asp:ListItem Text="Sim" Value="1"> </asp:ListItem>
+                                <asp:ListItem Text="Não" Value="0"></asp:ListItem>
+                            </asp:DropDownList>
+
+
+
+                <div class="col-lg-12">
+                    <asp:Panel runat="server" ID="pnlAviso" CssClass="alert alert-info" Visible="false">
+                        <asp:Label runat="server" ID="lblAviso"> </asp:Label>
+                    </asp:Panel>
+
+                    <div class="form-panel">
+                        <h4 class="mb title">Dados da Tarefa  <asp:Label runat="server" ID="codigoTarefa" > </asp:Label> </h4>
+
                         <div class="form-horizontal style-form">
                             <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Descrição:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtDescricao"
-                                        CssClass="form-control">
-                                    </asp:TextBox>
+                                <label class="col-sm-2 col-sm-2 control-label">Descrição:</label>
+                                <div class="col-sm-8">
+                                    <asp:TextBox runat="server" ID="txtDescricao" CssClass="form-control"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
+
                         <div class="form-horizontal style-form">
                             <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Cliente:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:DropDownList
-                                        runat="server"
-                                        ID="ddlCliente"
-                                        CssClass="form-control"
-                                        AppendDataBoundItems="true">
+                                <label class="col-sm-2 col-sm-2 control-label">Cliente:</label>
+                                <div class="col-sm-8"> 
+                                    <asp:DropDownList runat="server" ID="ddlCliente" CssClass="form-control" AppendDataBoundItems="true">
                                         <asp:ListItem Text="Selecione" Value="0"></asp:ListItem>
                                     </asp:DropDownList>
                                 </div>
                             </div>
                         </div>
+                    
                         <div class="form-horizontal style-form">
                             <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Ativo:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:DropDownList
-                                        runat="server"
-                                        ID="ddlTarefaAtiva"
-                                        CssClass="form-control">
-                                        <asp:ListItem
-                                            Text="Sim"
-                                            Value="1">
-                                        </asp:ListItem>
-                                        <asp:ListItem
-                                            Text="Não"
-                                            Value="0">
-                                        </asp:ListItem>
-                                    </asp:DropDownList>
+                                <label class="col-sm-2 col-sm-2 control-label">Data da Tarefa:</label>
+                                <div class="col-sm-2">
+                                    <asp:TextBox runat="server" ID="txtDataCadastro" CssClass="form-control" ClientIDMode="Static" MaxLength="10" AutoPostBack="true" OnTextChanged="txtDataCadastro_TextChanged"></asp:TextBox>
                                 </div>
-                            </div>
+                                <label class="col-sm-1 col-sm-1 control-label" style="text-align:right">Hora:</label>
+                                <div class="col-sm-2">
+                                    <asp:DropDownList runat="server" ID="ddlHora" CssClass="form-control"></asp:DropDownList>
+                                </div>
+                                <label class="col-sm-1 col-sm-1 control-label" style="text-align:right">Minuto:</label>
+                                <div class="col-sm-2" style="text-align:left">
+                                    <asp:DropDownList runat="server" ID="ddlMinuto" CssClass="form-control"> </asp:DropDownList>
+                                </div>
+                             </div>
                         </div>
-                        <div class="form-horizontal style-form">
+
+
+                         <div class="form-horizontal style-form">
                             <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Data da Tarefa:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtDataCadastro"
-                                        CssClass="form-control"
-                                        ClientIDMode="Static"
-                                        MaxLength="10"
-                                        AutoPostBack="true"
-                                        OnTextChanged="txtDataCadastro_TextChanged">
-                                    </asp:TextBox>
+                                <label class="col-sm-2 col-sm-2 control-label">Data/Hora Check-In:</label>
+                                <div class="col-sm-2">
+                                    <asp:TextBox runat="server" ID="txtDataHoraCheckIn" CssClass="form-control" ReadOnly="true" Enabled="false"></asp:TextBox>
                                 </div>
+                                <label class="col-sm-2 col-sm-2 control-label">Data/Hora Check-Out:</label>
+                                <div class="col-sm-2">
+                                    <asp:TextBox runat="server" ID="txtDatataHoraChekout" CssClass="form-control" ReadOnly="true" Enabled="false"> </asp:TextBox>
+                                </div>
+
                             </div>
                         </div>
-                        <div class="form-horizontal style-form">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Hora:
-                                </label>
-                                <div class="col-sm-5">
-                                    <asp:DropDownList
-                                        runat="server"
-                                        ID="ddlHora"
-                                        CssClass="form-control">
-                                    </asp:DropDownList>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-horizontal style-form">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Minuto:
-                                </label>
-                                <div class="col-sm-5">
-                                    <asp:DropDownList
-                                        runat="server"
-                                        ID="ddlMinuto"
-                                        CssClass="form-control">
-                                    </asp:DropDownList>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt">
-                <div class="col-lg-12">
-                    <div class="form-panel">
-                        <h4 class="mb title">Detalhes da Tarefa
-                        </h4>
-                        <div class="form-horizontal style-form">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Data/Hora Check-In:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtDataHoraCheckIn"
-                                        CssClass="form-control"
-                                        ReadOnly="true"
-                                        Enabled="false">
-                                    </asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-horizontal style-form">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Data/Hora Check-Out:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtDatataHoraChekout"
-                                        CssClass="form-control"
-                                        ReadOnly="true"
-                                        Enabled="false">
-                                    </asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="form-horizontal style-form">
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label">
                                     Observações:
                                 </label>
-                                <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtObservacao"
-                                        CssClass="form-control">
-                                    </asp:TextBox>
+                                <div class="col-sm-8">
+                                    <asp:TextBox runat="server" ID="txtObservacao" CssClass="form-control" TextMode="MultiLine" Rows="5"> </asp:TextBox>
                                 </div>
                             </div>
                         </div>
+
+                         <div class="form-horizontal style-form">
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label"> E-mail:</label>
+                                <div class="col-sm-6">
+                                    <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" placeholder="email@email.com.br" type="email"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
-            <div class="row mt">
+
+         
+
+            <div class="row">
                 <div class="col-lg-12">
                     <div class="form-panel">
                         <h4 class="mb title">Anexos
@@ -226,7 +166,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row mt">
+
+            <div class="row" style="padding-bottom:20px;">
                 <div class="col-lg-12">
                     <div class="form-panel">
                         <h4 class="mb title">Trajeto
@@ -243,41 +184,9 @@
                     </div>
                 </div>
             </div>
-            <div class="form-panel">
-                <div class="form-horizontal style-form">
-                    <div class="form-group">
-                        <label class="col-sm-2 col-sm-2 control-label">
-                            E-mail:
-                        </label>
-                        <div class="col-sm-10">
-                            <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" placeholder="email@email.com.br" type="email"></asp:TextBox>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt">
-                <div class="col-lg-12">
-                    <p style="text-align: center;">
-                        <asp:Button
-                            ID="btnSalvar"
-                            runat="server"
-                            Text="Salvar"
-                            OnClientClick="bootbox.alert('Oi', function() { return false;});"
-                            OnClick="btnSalvar_Click"
-                            CssClass="btn btn-primary" />
-                        &nbsp;
-                        <asp:Button
-                            ID="btnExcluir"
-                            runat="server"
-                            Text="Excluir"
-                            OnClientClick="return  confirm('Deseja realmente excluir a tarefa?');"
-                            OnClick="btnExcluir_Click"
-                            CssClass="btn btn-primary" />
-                        &nbsp;
-                        <asp:Button ID="btnGerarOS" runat="server" Text="Gerar O. S." CssClass="btn btn-primary" OnClick="btnGerarOS_Click" />
-                    </p>
-                </div>
-            </div>
+
+
+
             <script src="Scripts/Bootstrap/jquery-1.9.1.min.js"></script>
             <script src="JavaScript/Validations.js"></script>
             <script type="text/javascript">
@@ -287,9 +196,7 @@
                     });
                 });
 
-                function teste() {
-                    alert("ok");
-                }
+                
             </script>
 
             <script>
