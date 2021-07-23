@@ -15,7 +15,7 @@
                 <div class="col-lg-11">
                     <div class="form-panel">
                         <div class="form-group">
-                        <asp:Button ID="Button1" runat="server" Text="Novo Usuário" CssClass="btn btn-primary" OnClick="btnIncluir_Click" />
+                        <asp:Button ID="btnIncluir" runat="server" Text="Novo Usuário" CssClass="btn btn-primary" OnClick="btnIncluir_Click" />
                         </div>
 
                     </div>
@@ -25,16 +25,10 @@
                 <%--####### LISTA DE USUARIOS ###########--%>
             <div class="row">
                 <div class="col-lg-11">
-                    <asp:Panel 
-                        runat="server" 
-                        ID="pnlAviso"
-                        CssClass="alert alert-info"
-                        Visible="false">
-                            <asp:Label
-                                runat="server"
-                                ID="lblAviso">
-                            </asp:Label>
+                    <asp:Panel  runat="server" ID="pnlAviso" CssClass="alert alert-info" Visible="false">
+                            <asp:Label runat="server" ID="lblAviso"></asp:Label>
                     </asp:Panel>
+
                     <div class="form-panel">
                         <%--### PESQUISAR ###--%>
                         <div class="row" style="padding-bottom:10px;">
@@ -93,20 +87,33 @@
                                                                     CommandArgument='<%#Eval("CodFunc").ToString() %>' />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-
-
-                                                        <asp:BoundField
-                                                            DataField="NomeFunc"
-                                                            HeaderText="Funcionário" />
-                                                       <asp:TemplateField HeaderText="Usuário">
+                                                     
+                                                         <asp:TemplateField>
                                                             <ItemTemplate>
-                                                                 <asp:Label 
-                                                                     runat="server"
-                                                                     ID="lblLoginUsuarioGrid"
-                                                                     Text='<%#Eval("Usuario.LoginUsu").ToString() %>'>
-                                                                 </asp:Label>
+                                                                <asp:ImageButton
+                                                                    runat="server"
+                                                                    ID="btnAlterarSenha"
+                                                                    ImageUrl="~/Imagens/key.png" 
+                                                                    OnClick="btnAlterarSenha"
+                                                                    CommandArgument='<%#Eval("Usuario.CodUsu").ToString() %>' />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
+
+                                                        <asp:TemplateField HeaderText="Cod">
+                                                            <ItemTemplate>
+                                                                 <asp:Label runat="server" ID="lblCodUsuarioGrid" Text='<%#Eval("Usuario.CodUsu").ToString() %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+
+
+                                                       <asp:BoundField DataField="NomeFunc" HeaderText="Funcionário" />
+                                                         
+                                                       <asp:TemplateField HeaderText="Usuário">
+                                                            <ItemTemplate>
+                                                                 <asp:Label runat="server" ID="lblLoginUsuarioGrid" Text='<%#Eval("Usuario.LoginUsu").ToString() %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+
                                                         <asp:TemplateField HeaderText="Perfil">
                                                             <ItemTemplate>
                                                                  <asp:Label 

@@ -31,9 +31,7 @@
                     </asp:Panel>
 
                     <div class="form-panel">
-                        <h4 class="mb title">
-                            Dados do Funcionário
-                        </h4>      
+                        <h4 class="mb title">Dados do Funcionário</h4>      
                         <div class="form-horizontal style-form">
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label">Nome do Funcionário:</label>
@@ -143,7 +141,7 @@
                                         <asp:DropDownList
                                             runat="server"
                                             ID="ddlEmpresa"
-                                            CssClass="form-control"
+                                            CssClass="form-control" 
                                             required>
                                         </asp:DropDownList>
                                     </div>
@@ -191,11 +189,6 @@
                                 <div class="col-sm-5">
                                     <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" required="required"></asp:TextBox>
                                 </div>
-                                <label class="col-sm-1 col-sm-1 control-label"> Senha:</label>
-                                <div class="col-sm-4">
-                                    <asp:TextBox runat="server" ID="txtSenha" TextMode="Password" CssClass="form-control" required="required"></asp:TextBox>
-                                </div>
-
                             </div>
                         </div>
 
@@ -259,9 +252,11 @@
 
                 function mascara(campo) {
                     campo.value = campo.value.replace(/[^\d]/g, '')
+                                               
                                              .replace(/^(\d\d)(\d)/, '($1) $2')
-                                             .replace(/(\d{5})(\d)/, '$1-$2');
-                    if (campo.value.length > 15) campo.value = stop;
+                        .replace(/(\d{5})(\d)/, '$1-$2');
+                    console.log(campo.value);
+                    if (campo.value.length > 18) campo.value = stop;
                     else stop = campo.value;
                 }
             </script>

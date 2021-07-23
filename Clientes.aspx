@@ -10,60 +10,39 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cphConteudoPrincipal" runat="server">
     <asp:MultiView runat="server" ID="multiview">
         <asp:View ID="view" runat="server">
-            <div class="row mt">
-                <div class="col-lg-12">
-                    <asp:Button
-                        runat="server"
-                        ID="btnExportarExcel"
-                        Text="Exportar para Excel"
-                        OnClick="btnExportarExcel_Click" />
-                </div>
-            </div>
-            <div class="row mt">
+          
+              <div class="row">
                 <div class="col-lg-12">
                     <div class="form-panel">
-                        <h4 class="mb title">Pesquisar
-                        </h4>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="form-panel">
-                                    <div class="form-horizontal style-form">
-                                        <div class="form-group">
-                                            <label class="col-sm-2 col-sm-2 control-label">
-                                                Palavra-chave:
-                                            </label>
-                                            <div class="col-sm-10">
-                                                <asp:TextBox ID="txtPesquisar" runat="server" CssClass="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <p style="text-align: center">
-                                            <asp:Button ID="btnPesquisar" runat="server" Text="Pesquisar" CssClass="btn btn-primary" OnClick="btnPesquisar_Click" />
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="form-group">
+                        <asp:Button ID="btnIncluir" runat="server" Text="Novo Cliente" CssClass="btn btn-primary" OnClick="btnIncluir_Click" />
+                        <asp:Button runat="server" ID="btnExportarExcel" Text="Exportar para Excel" CssClass="btn btn-primary" OnClick="btnExportarExcel_Click" />
                         </div>
                     </div>
                 </div>
             </div>
-            &nbsp;
-            <div class="row mt">
+
+                       
+
+            <div class="row" style="padding-bottom:20px;">
                 <div class="col-lg-12">
                     <div class="form-panel">
-                        <h4 class="mb title">
-                            Relação de Clientes
-                        </h4>      
+                        <div class="col-lg-10" style="padding-bottom:10px;">
+                                        <div class="form-group">
+                                                <div class="col-sm-2">
+                                                    <asp:Button ID="btnPesquisar" runat="server" Text="Pesquisar" CssClass="btn btn-primary" OnClick="btnPesquisar_Click" />
+                                                 </div>
+                                                <div class="col-sm-10">
+                                                    <asp:TextBox ID="txtPesquisar" runat="server" CssClass="form-control"></asp:TextBox>
+                                                </div>
+                                        </div>
+                            </div>
+                        
+
                         <div class="row">
                            <div class="col-lg-12">
-                               <asp:Panel 
-                                runat="server" 
-                                ID="pnlAviso"
-                                CssClass="alert alert-info"
-                                Visible="false">
-                                    <asp:Label
-                                        runat="server"
-                                        ID="lblAviso">
-                                    </asp:Label>
+                               <asp:Panel runat="server"  ID="pnlAviso" CssClass="alert alert-info" Visible="false">
+                                    <asp:Label runat="server" ID="lblAviso"></asp:Label>
                                </asp:Panel>
                                <div class="panel panel-default">
                                    <div class="panel-body">
@@ -84,23 +63,7 @@
                                                PagerStyle-VerticalAlign="Bottom">
                                                <PagerStyle Font-Size="Medium" />
                                                     <Columns>
-                                                        <asp:BoundField 
-                                                            DataField="CgcCpfCli" 
-                                                            HeaderText="CPF/CNPJ" 
-                                                            HeaderStyle-HorizontalAlign="Center"/>
-                                                        <asp:BoundField 
-                                                            DataField="RazaoCli" 
-                                                            HeaderText="Razão Social" 
-                                                            HeaderStyle-HorizontalAlign="Center"/>
-                                                        <asp:BoundField 
-                                                            DataField="NReduzCli" 
-                                                            HeaderText="Nome Fantasia"
-                                                            HeaderStyle-HorizontalAlign="Center" />
-                                                        <asp:BoundField 
-                                                            DataField="Tel1Cli" 
-                                                            HeaderText="Telefone"
-                                                            HeaderStyle-HorizontalAlign="Center" />
-                                                         <asp:TemplateField>
+                                                        <asp:TemplateField>
                                                          <ItemTemplate>
                                                              <asp:ImageButton
                                                                     runat="server"
@@ -120,6 +83,12 @@
                                                                     CommandArgument='<%#Eval("CodCli").ToString() %>'/>
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
+
+                                                        <asp:BoundField DataField="RazaoCli" HeaderText="Razão Social" HeaderStyle-HorizontalAlign="Center"/>
+                                                        <asp:BoundField DataField="NReduzCli" HeaderText="Nome Fantasia" HeaderStyle-HorizontalAlign="Center" />
+                                                        <asp:BoundField DataField="Tel1Cli" HeaderText="Telefone" HeaderStyle-HorizontalAlign="Center" />
+                                                        <%--<asp:BoundField DataField="CgcCpfCli" HeaderText="CPF/CNPJ" HeaderStyle-HorizontalAlign="Center"/>--%>
+                                                         
                                                     </Columns>
                                                     <EmptyDataTemplate>
                                                         Não foi encontrado nenhum cliente para ser relacionado!
@@ -132,19 +101,8 @@
                        </div>   
                    </div>
                 </div>
-            </div>
-            <div class="row mt">
-                <div class="col-lg-12">
-                    <p style="text-align: center;">
-                        <asp:Button 
-                            ID="btnIncluir" 
-                            runat="server" 
-                            Text="Incluir" 
-                            CssClass="btn btn-primary"
-                            OnClick="btnIncluir_Click" />
-                    </p>
-                </div>
-            </div>
+            
+           </div>
         </asp:View>
     </asp:MultiView>
 </asp:Content>

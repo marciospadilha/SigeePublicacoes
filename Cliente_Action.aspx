@@ -10,329 +10,177 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cphConteudoPrincipal" runat="server">
    <asp:MultiView runat="server" ID="multiview">
         <asp:View ID="view" runat="server">
-            <div class="row mt">
+            <div class="row">
                 <div class="col-lg-12">
-                    <asp:Panel 
-                        runat="server" 
-                        ID="pnlAviso"
-                        CssClass="alert alert-info"
-                        Visible="false">
-                            <asp:Label
-                                runat="server"
-                                ID="lblAviso">
-                            </asp:Label>
+                    <asp:Panel  runat="server" ID="pnlAviso" CssClass="alert alert-info" Visible="false">
+                            <asp:Label runat="server" ID="lblAviso"></asp:Label>
                     </asp:Panel>
-                    <div class="form-panel">
-                        <h4 class="mb title">
-                            Dados do Cliente
-                        </h4>
-                        <div class="form-horizontal style-form">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    CPF/CNPJ:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtCpfCnpj"
-                                        CssClass="form-control"
-                                        ClientIDMode="Static">
-                                    </asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-horizontal style-form">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Razão Social:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtRazaoSocial"
-                                        CssClass="form-control">
-                                    </asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-horizontal style-form">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Nome Fantasia:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtNomeFantasia"
-                                        CssClass="form-control"
-                                        ClientIDMode="Static">
-                                    </asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-horizontal style-form">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Inscrição Estadual:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtInscricaoEstadual"
-                                        CssClass="form-control">
-                                    </asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-horizontal style-form">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Telefone:
-                                </label>
-                                <div class="col-sm-5">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtTelefone"
-                                        CssClass="form-control"
-                                        ClientIDMode="Static">
-                                    </asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-horizontal style-form">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    E-Mail:
-                                </label>
-                                <div class="col-sm-5">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtEmail"
-                                        CssClass="form-control"
-                                        ClientIDMode="Static"
-                                        type="email">
-                                    </asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-horizontal style-form">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                   Ativo:
-                                </label>
-                                <div class="col-sm-10">
-                                   <asp:DropDownList
-                                       runat="server"
-                                       ID="ddlClienteAtivo"
-                                       CssClass="form-control">
-                                            <asp:ListItem
-                                                Text="Sim"
-                                                Value="1">
-                                            </asp:ListItem>
-                                            <asp:ListItem
-                                                Text="Não"
-                                                Value="0">
-                                            </asp:ListItem>
-                                   </asp:DropDownList>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-horizontal style-form">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                   Funcionário Resp.:
-                                </label>
-                                <div class="col-sm-10">
-                                   <asp:DropDownList
-                                       runat="server"
-                                       ID="ddlFuncionario"
-                                       CssClass="form-control"
-                                       AppendDataBoundItems="true">
-                                            <asp:ListItem Text="Selecione" Value="0"></asp:ListItem> 
-                                   </asp:DropDownList>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-horizontal style-form">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                   Data de Lançamento:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtDataCadastro"
-                                        Enabled="false"
-                                        CssClass="form-control">
-                                    </asp:TextBox>
-                                </div>
+                     <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-panel">
+                                    <button class="btn btn-primary"  onclick="javascript: location.href='Clientes.aspx'">Voltar</button>
+                                    <asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click" CssClass="btn btn-primary"  />
                             </div>
                         </div>
                     </div>
+
+                    <div class="form-panel">
+                        <h4 class="mb title">Dados do Cliente</h4>
+                        
+
+                        <div class="form-horizontal style-form">
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label"> Razão Social:</label>
+                                <div class="col-sm-8">
+                                    <asp:TextBox runat="server" ID="txtRazaoSocial" CssClass="form-control"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-horizontal style-form">
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Nome Fantasia:</label>
+                                <div class="col-sm-8">
+                                    <asp:TextBox runat="server" ID="txtNomeFantasia" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="form-horizontal style-form">
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">CPF/CNPJ:</label>
+                                <div class="col-sm-4">
+                                    <asp:TextBox runat="server" ID="txtCpfCnpj" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                </div>
+                         
+                                <label class="col-sm-2 col-sm-2 control-label" style="text-align:right"> Inscrição Estadual:</label>
+                                <div class="col-sm-4">
+                                    <asp:TextBox runat="server" ID="txtInscricaoEstadual" CssClass="form-control"> </asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-horizontal style-form">
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">E-Mail:</label>
+                                <div class="col-sm-5">
+                                    <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" ClientIDMode="Static" type="email"></asp:TextBox>
+                                </div>
+                           
+                                <label class="col-sm-2 col-sm-2 control-label" style="text-align:right">Telefone:</label>
+                                <div class="col-sm-3">
+                                    <asp:TextBox runat="server" ID="txtTelefone" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-horizontal style-form">
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Funcionário Resp.:</label>
+                                <div class="col-sm-4">
+                                   <asp:DropDownList runat="server" ID="ddlFuncionario" CssClass="form-control" AppendDataBoundItems="true">
+                                            <asp:ListItem Text="Selecione" Value="0"></asp:ListItem> 
+                                   </asp:DropDownList>
+                                </div>
+
+                                <label class="col-sm-2 col-sm-2 control-label">Data de Lançamento:</label>
+                                <div class="col-sm-2">
+                                    <asp:TextBox runat="server" ID="txtDataCadastro" Enabled="false" CssClass="form-control"></asp:TextBox>
+                                </div>
+
+                            </div>
+                        </div>
+                        
+
+                        <div class="form-horizontal style-form">
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Ativo:</label>
+                                <div class="col-sm-2">
+                                   <asp:DropDownList runat="server" ID="ddlClienteAtivo" CssClass="form-control">
+                                            <asp:ListItem Text="Sim" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="Não" Value="0"></asp:ListItem>
+                                   </asp:DropDownList>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-            <div class="row mt">
+            <div class="row" style="padding-bottom:20px;">
                 <div class="col-lg-12">
                     <div class="form-panel">
-                        <h4 class="mb title">
-                            Dados do Endereço
-                        </h4>
+                        <h4 class="mb title">Dados do Endereço</h4>
                         <div class="form-horizontal style-form">
                             <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Logradouro:
-                                </label>
+                                <label class="col-sm-2 col-sm-2 control-label">Logradouro:</label>
                                 <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtLogradouro"
-                                        CssClass="form-control"
-                                        ClientIDMode="Static">
-                                    </asp:TextBox>
+                                    <asp:TextBox runat="server" ID="txtLogradouro" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
                         <div class="form-horizontal style-form">
                             <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    CEP:
-                                </label>
-                                <div class="col-sm-3">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtCep"
-                                        CssClass="form-control"
-                                        ClientIDMode="Static">
-                                    </asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-horizontal style-form">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Número:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtNumero"
-                                        CssClass="form-control"
-                                        ClientIDMode="Static">
-                                    </asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-horizontal style-form">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Complemento:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtComplemento"
-                                        CssClass="form-control">
-                                    </asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-horizontal style-form">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Bairro:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtBairro"
-                                        CssClass="form-control"
-                                        ClientIDMode="Static">
-                                    </asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-horizontal style-form">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Cidade:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtCidade"
-                                        CssClass="form-control"
-                                        ClientIDMode="Static">
-                                    </asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-horizontal style-form">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    UF:
-                                </label>
+                                <label class="col-sm-2 col-sm-2 control-label"> CEP:</label>
                                 <div class="col-sm-2">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtUf"
-                                        CssClass="form-control">
-                                    </asp:TextBox>
+                                    <asp:TextBox runat="server" ID="txtCep" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
                                 </div>
+                                <label class="col-sm-1 col-sm-1 control-label" style="text-align:right">Número:</label>
+                                <div class="col-sm-2"> 
+                                    <asp:TextBox runat="server" ID="txtNumero" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                </div>
+                                <label class="col-sm-2 col-sm-2 control-label" style="text-align:right">Complemento:</label>
+                                <div class="col-sm-3">
+                                    <asp:TextBox runat="server" ID="txtComplemento" CssClass="form-control"></asp:TextBox>
+                                </div>
+
                             </div>
                         </div>
+                        
+
                         <div class="form-horizontal style-form">
                             <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Latitude:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtLatitude"
-                                        CssClass="form-control">
-                                    </asp:TextBox>
+                                <label class="col-sm-2 col-sm-2 control-label">Bairro:</label>
+                                <div class="col-sm-4">
+                                    <asp:TextBox runat="server" ID="txtBairro" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                </div>
+                                <label class="col-sm-1 col-sm-1 control-label" style="text-align:right">Cidade:</label>
+                                <div class="col-sm-3">
+                                    <asp:TextBox runat="server" ID="txtCidade" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                </div>
+                                 <label class="col-sm-1 col-sm-1 control-label" style="text-align:right">UF:</label>
+                                <div class="col-sm-1">
+                                    <asp:TextBox runat="server" ID="txtUf" CssClass="form-control"></asp:TextBox>
                                 </div>
                             </div>
+
                         </div>
+                        
+
                         <div class="form-horizontal style-form">
                             <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
-                                    Longitude:
-                                </label>
-                                <div class="col-sm-10">
-                                    <asp:TextBox
-                                        runat="server"
-                                        ID="txtLongitude"
-                                        CssClass="form-control">
-                                    </asp:TextBox>
+                                <label class="col-sm-2 col-sm-2 control-label">Latitude:</label>
+                                <div class="col-sm-4">
+                                    <asp:TextBox runat="server" ID="txtLatitude" CssClass="form-control"></asp:TextBox>
                                 </div>
+                                <label class="col-sm-2 col-sm-2 control-label" style="text-align:right">Longitude:</label>
+                                <div class="col-sm-4">
+                                    <asp:TextBox runat="server" ID="txtLongitude" CssClass="form-control"></asp:TextBox>
+                                </div>
+
                             </div>
                         </div>
+                     
                         <div class="form-horizontal style-form">
                             <div class="form-group">
-                               <label class="col-sm-2 col-sm-2 control-label">
-                                   
-                                </label>
-                                <div class="col-sm-10">
-                                    <div id="map" style="height:200px;"></div>
+                               <label class="col-sm-2 col-sm-2 control-label"></label>
+                                <div class="col-sm-8"><div id="map" style="height:200px;"></div>
                                  </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row mt">
-                <div class="col-lg-12">
-                    <p style="text-align: center;">
-                        <asp:Button 
-                            ID="btnSalvar" 
-                            runat="server" 
-                            Text="Salvar"
-                            OnClick="btnSalvar_Click" 
-                            CssClass="btn btn-primary"  />
-                    </p>
-                </div>
-            </div>
+          
 
             
             <script src="<%# ResolveUrl("~/") %>Scripts/Mascaras/maskedinput-1.4.1.js"></script>

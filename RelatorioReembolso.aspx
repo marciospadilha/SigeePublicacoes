@@ -11,15 +11,8 @@
      <asp:MultiView runat="server" ID="multiview">
         <asp:View ID="view" runat="server">
             <div class="row mt">
-                <asp:Panel 
-                    runat="server" 
-                    ID="pnlAviso"
-                    CssClass="alert alert-info"
-                    Visible="false">
-                        <asp:Label
-                            runat="server"
-                            ID="lblAviso">
-                        </asp:Label>
+                <asp:Panel runat="server" ID="pnlAviso" CssClass="alert alert-info" Visible="false">
+                        <asp:Label runat="server" ID="lblAviso"></asp:Label>
                 </asp:Panel>
                 <div class="col-lg-12">
                     <div class="form-panel">
@@ -69,10 +62,7 @@
                                 </label>
                                 <div class="col-sm-5">
                                     <asp:TextBox
-                                        runat="server"
-                                        ID="txtDataFinal"
-                                        CssClass="form-control"
-                                        MaxLength="10"
+                                        runat="server" ID="txtDataFinal" CssClass="form-control" MaxLength="10"
                                         onkeypress="return isNumberKey(event)"
                                         onkeyup="formataData(this, retornaKeyCode(event));">
                                     </asp:TextBox>
@@ -85,12 +75,7 @@
             <div class="row mt">
                 <div class="col-lg-12">
                     <p style="text-align: center;">
-                        <asp:Button 
-                            ID="btnGerar" 
-                            runat="server" 
-                            Text="Gerar"
-                            OnClick="btnGerar_Click"
-                            CssClass="btn btn-primary"  />
+                        <asp:Button ID="btnGerar" runat="server" Text="Gerar" OnClick="btnGerar_Click" CssClass="btn btn-primary"  />
                     </p>
                 </div>
             </div>
