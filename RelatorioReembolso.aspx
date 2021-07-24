@@ -27,7 +27,7 @@
                                     <label class="col-sm-2 col-sm-2 control-label">
                                         Funcionário:
                                     </label>
-                                    <div class="col-sm-10">
+                                    <div class="col-sm-6">
                                         <asp:DropDownList
                                             runat="server"
                                             ID="ddlFuncionario"
@@ -43,7 +43,7 @@
                                 <label class="col-sm-2 col-sm-2 control-label">
                                     Data Inicial:
                                 </label>
-                                <div class="col-sm-5">
+                                <div class="col-sm-2">
                                     <asp:TextBox
                                         runat="server"
                                         ID="txtDataInicial"
@@ -60,7 +60,7 @@
                                 <label class="col-sm-2 col-sm-2 control-label">
                                     Data Final:
                                 </label>
-                                <div class="col-sm-5">
+                                <div class="col-sm-2">
                                     <asp:TextBox
                                         runat="server" ID="txtDataFinal" CssClass="form-control" MaxLength="10"
                                         onkeypress="return isNumberKey(event)"
