@@ -49,10 +49,16 @@
                                 <div class="col-sm-4">
                                     <asp:TextBox runat="server" ID="txtCpfCnpj" CssClass="form-control"></asp:TextBox>
                                 </div>
-                                <label class="col-sm-2 col-sm-2 control-label" style="text-align:right">Celular: </label>
-                                <div class="col-sm-4">
+                                 <label class="col-sm-1 col-sm-1 control-label" style="text-align:right">DDI: </label>
+                                <div class="col-sm-2">
+                                    <asp:TextBox runat="server" ID="texDDItel1" MaxLength="5" CssClass="form-control" ClientIDMode="Static" required="required"></asp:TextBox>
+                                </div>
+
+                                <label class="col-sm-1 col-sm-1 control-label" style="text-align:right">Celular: </label>
+                                <div class="col-sm-2" style="text-align:left">
                                     <asp:TextBox runat="server" ID="txtCelular" CssClass="form-control" ClientIDMode="Static" onkeydown="mascara( this )" onkeyup="mascara( this )" required="required"></asp:TextBox>
                                 </div>
+
                             </div>
                         </div> 
 
