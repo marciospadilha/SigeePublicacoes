@@ -16,6 +16,7 @@
         <link href="<%# ResolveUrl("~/") %>Css/Bootstrap/Style.css" rel="stylesheet" />
         <link href="<%# ResolveUrl("~/") %>Css/Bootstrap/Style-Responsivo.css" rel="stylesheet" />
         <link href="<%# ResolveUrl("~/") %>Css/Bootstrap/DataTable-Bootstrap.css" rel="stylesheet" />
+        <link href="<%# ResolveUrl("~/") %>Css/SigeeStyle.css" rel="stylesheet" />
     </head>
     <body>
         <script type="text/javascript">

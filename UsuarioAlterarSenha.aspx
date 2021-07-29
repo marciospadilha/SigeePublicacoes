@@ -18,7 +18,7 @@
            <div class="row">
                 <div class="col-lg-12">
                     <div class="form-panel">
-                            <button class="btn btn-primary"  onclick="javascript: location.href='Usuarios.aspx'">Voltar</button>
+                            <button class="btn btn-primary"  onclick="Voltar();">Voltar</button>
                             <asp:Button ID="btnSalvar" runat="server" Text="Salvar" CssClass="btn btn-primary" OnClick="btnSalvar_Click" />
                     </div>
                 </div>
@@ -42,7 +42,15 @@
                             </div>
                         </div>
              </div>
+<script>
 
+    function Voltar() {
+        location.href = 'Usuarios.aspx';
+    }
+
+
+
+</script>
 
     </asp:View>
     </asp:MultiView>

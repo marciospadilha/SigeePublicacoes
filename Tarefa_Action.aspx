@@ -6,8 +6,7 @@
     CodeBehind="Tarefa_Action.aspx.cs"
     Inherits="Sigee.Tarefa_Action" %>
 
-
-
+ 
  
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphConteudoPrincipal" runat="server">
@@ -15,6 +14,7 @@
         <asp:View ID="view" runat="server">
             <script src="Scripts/BootBox/bootbox.min.js"></script>
 
+          
 
             <div class="row">
                 <div class="col-lg-12">
@@ -53,7 +53,7 @@
 
                         <div class="form-horizontal style-form">
                             <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">Descrição:</label>
+                                <label class="col-sm-2 col-sm-2 control-label" style="text-align:right;">Descrição:</label>
                                 <div class="col-sm-8">
                                     <asp:TextBox runat="server" ID="txtDescricao" CssClass="form-control"></asp:TextBox>
                                 </div>
@@ -62,7 +62,7 @@
 
                         <div class="form-horizontal style-form">
                             <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">Cliente:</label>
+                                <label class="col-sm-2 col-sm-2 control-label" style="text-align:right;" >Cliente:</label>
                                 <div class="col-sm-8"> 
                                     <asp:DropDownList runat="server" ID="ddlCliente" CssClass="form-control" AppendDataBoundItems="true">
                                         <asp:ListItem Text="Selecione" Value="0"></asp:ListItem>
@@ -73,7 +73,7 @@
                     
                         <div class="form-horizontal style-form">
                             <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">Data da Tarefa:</label>
+                                <label class="col-sm-2 col-sm-2 control-label" style="text-align:right;">Data da Tarefa:</label>
                                 <div class="col-sm-2">
                                     <asp:TextBox runat="server" ID="txtDataCadastro" CssClass="form-control" ClientIDMode="Static" MaxLength="10" AutoPostBack="true" OnTextChanged="txtDataCadastro_TextChanged"></asp:TextBox>
                                 </div>
@@ -91,21 +91,21 @@
 
                          <div class="form-horizontal style-form">
                             <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">Data/Hora Check-In:</label>
+                                <label class="col-sm-2 col-sm-2 control-label" style="text-align:right;">Data/Hora Check-In:</label>
                                 <div class="col-sm-2">
                                     <asp:TextBox runat="server" ID="txtDataHoraCheckIn" CssClass="form-control" ReadOnly="true" Enabled="false"></asp:TextBox>
                                 </div>
-                                <label class="col-sm-2 col-sm-2 control-label">Data/Hora Check-Out:</label>
+                                <label class="col-sm-2 col-sm-2 control-label" style="text-align:right">Data/Hora Check-Out:</label>
                                 <div class="col-sm-2">
                                     <asp:TextBox runat="server" ID="txtDatataHoraChekout" CssClass="form-control" ReadOnly="true" Enabled="false"> </asp:TextBox>
                                 </div>
-
+                                 
                             </div>
                         </div>
 
                         <div class="form-horizontal style-form">
                             <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
+                                <label class="col-sm-2 col-sm-2 control-label" style="text-align:right;">
                                     Observações:
                                 </label>
                                 <div class="col-sm-8">
@@ -116,8 +116,16 @@
 
                          <div class="form-horizontal style-form">
                             <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label"> E-mail:</label>
-                                <div class="col-sm-6">
+                                <label class="col-sm-2 control-label" style="text-align:right">Status Visita:</label>
+                                <div class="col-sm-2" style="text-align:left"> 
+                                    <asp:DropDownList runat="server" ID="ListStatusVisita" CssClass="form-control" AppendDataBoundItems="true">
+                                        <asp:ListItem Text="Selecione" Value="1">Positiva</asp:ListItem>
+                                        <asp:ListItem Text="Selecione" Value="0">Negativa</asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+
+                                <label class="col-sm-2 col-sm-2 control-label" style="text-align:right;"> E-mail:</label>
+                                <div class="col-sm-4">
                                     <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" placeholder="email@email.com.br" type="email"></asp:TextBox>
                                 </div>
                             </div>
@@ -136,10 +144,10 @@
                         </h4>
                         <div class="form-horizontal style-form">
                             <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
+                                <label class="col-sm-2 col-sm-2 control-label" style="text-align:right;">
                                     Anexo:
                                 </label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-6">
                                     <asp:FileUpload
                                         ID="fileUpload"
                                         runat="server"
@@ -149,7 +157,7 @@
                         </div>
                         <div class="form-horizontal style-form">
                             <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">
+                                <label class="col-sm-2 col-sm-2 control-label" style="text-align:right;">
                                     Imagens:
                                 </label>
                                 <div class="col-sm-10">

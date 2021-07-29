@@ -8,6 +8,11 @@
 %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphConteudoPrincipal" runat="server">
+<style>
+    .alignRight{
+        text-align:right;
+    }
+</style>
     <asp:MultiView runat="server" ID="multiview">
         <asp:View ID="view" runat="server">
             <asp:HiddenField runat="server" ID="hfCodUsu" />
@@ -18,7 +23,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="form-panel">
-                            <button class="btn btn-primary"  onclick="javascript: location.href='Usuarios.aspx'">Voltar</button>
+                            <button class="btn btn-primary"  onclick="Voltar();">Voltar</button>
                             <asp:Button ID="Button1" runat="server" Text="Salvar" CssClass="btn btn-primary" OnClick="btnSalvar_Click" />
                     </div>
                 </div>
@@ -192,8 +197,12 @@
                         <div class="form-horizontal style-form">
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label">Email:</label>
-                                <div class="col-sm-5">
+                                <div class="col-sm-4">
                                     <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" required="required"></asp:TextBox>
+                                </div>
+                                <asp:Label runat="server" CssClass="col-sm-2 col-sm-2 alignRight"  ID="labelSenha" >Senha:</asp:Label>
+                                <div class="col-sm-4">
+                                    <asp:TextBox runat="server" ID="txtSenha" CssClass="form-control" required="required"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
@@ -264,6 +273,10 @@
                     console.log(campo.value);
                     if (campo.value.length > 18) campo.value = stop;
                     else stop = campo.value;
+                }
+
+                function Voltar() {
+                    location.href = 'Usuarios.aspx';
                 }
             </script>
 

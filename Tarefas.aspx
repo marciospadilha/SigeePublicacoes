@@ -18,13 +18,7 @@
             </div>
             <asp:Panel runat="server" ID="pnlBuscaPerfil" CssClass="row mt">
                 <div class="col-lg-12">
-                    <asp:DropDownList 
-                        runat="server" 
-                        ID="ddlPerfil" 
-                        CssClass="form-control"
-                        AutoPostBack="true"
-                        OnSelectedIndexChanged="ddlPerfil_SelectedIndexChanged">
-                    </asp:DropDownList>
+                    <asp:DropDownList runat="server"  ID="ddlPerfil" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlPerfil_SelectedIndexChanged"></asp:DropDownList>
                 </div>
             </asp:Panel>
 
