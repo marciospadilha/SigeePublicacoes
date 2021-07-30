@@ -17,6 +17,20 @@
         <link href="<%# ResolveUrl("~/") %>Css/Bootstrap/Style-Responsivo.css" rel="stylesheet" />
         <link href="<%# ResolveUrl("~/") %>Css/Bootstrap/DataTable-Bootstrap.css" rel="stylesheet" />
         <link href="<%# ResolveUrl("~/") %>Css/SigeeStyle.css" rel="stylesheet" />
+
+
+         <!-- Scripts Bootstrap -->
+            <script src="<%# ResolveUrl("~/") %>Scripts/Bootstrap/jQuery.js"></script>
+            <script src="<%# ResolveUrl("~/") %>Scripts/Bootstrap/jquery-1.9.1.min.js"></script>
+           <%-- <script src="<%# ResolveUrl("~/") %>Scripts/Bootstrap/Bootstrap-min.js"></script>
+            <script class="include" src="<%# ResolveUrl("~/") %>Scripts/Bootstrap/jQuery.dcjqaccordion.js"></script>
+            <script src="<%# ResolveUrl("~/") %>Scripts/Bootstrap/jQueryScroll.js"></script>
+            <script src="<%# ResolveUrl("~/") %>Scripts/Bootstrap/jQueryNiceScroll.js"></script>
+            <script src="<%# ResolveUrl("~/") %>Scripts/Bootstrap/Morris-min.js"></script>
+            <script src="<%# ResolveUrl("~/") %>Scripts/Bootstrap/ScriptTheme.js"></script>
+            <script src="<%# ResolveUrl("~/") %>Scripts/Bootstrap/jQuery-DataTable.js"></script>--%>
+
+
     </head>
     <body>
         <script type="text/javascript">
@@ -297,8 +311,8 @@
             </section>
 
             <!-- Scripts Bootstrap -->
-            <script src="<%# ResolveUrl("~/") %>Scripts/Bootstrap/jQuery.js"></script>
-            <script src="<%# ResolveUrl("~/") %>Scripts/Bootstrap/jquery-1.9.1.min.js"></script>
+            <%--<script src="<%# ResolveUrl("~/") %>Scripts/Bootstrap/jQuery.js"></script>
+            <script src="<%# ResolveUrl("~/") %>Scripts/Bootstrap/jquery-1.9.1.min.js"></script>--%>
             <script src="<%# ResolveUrl("~/") %>Scripts/Bootstrap/Bootstrap-min.js"></script>
             <script class="include" src="<%# ResolveUrl("~/") %>Scripts/Bootstrap/jQuery.dcjqaccordion.js"></script>
             <script src="<%# ResolveUrl("~/") %>Scripts/Bootstrap/jQueryScroll.js"></script>

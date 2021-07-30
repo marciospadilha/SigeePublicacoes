@@ -120,9 +120,9 @@
                         </div>
                         <div class="form-horizontal style-form">
                             <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label"> CEP:</label>
+                                <label class="col-sm-2 col-sm-2 control-label">CEP:</label>
                                 <div class="col-sm-2">
-                                    <asp:TextBox runat="server" ID="txtCep" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                    <asp:TextBox runat="server" ID="txtCep" CssClass="form-control" ClientIDMode="Static" ></asp:TextBox>
                                 </div>
                                 <label class="col-sm-1 col-sm-1 control-label" style="text-align:right">Número:</label>
                                 <div class="col-sm-2"> 
@@ -184,12 +184,7 @@
 
             
             <script src="<%# ResolveUrl("~/") %>Scripts/Mascaras/maskedinput-1.4.1.js"></script>
-            <script type="text/javascript">
-                
-                jQuery(function ($) {
-                    $("#txtCpfCnpj").mask("999.999.999-99", { placeholder: "" });
-                });
-            </script>
+            
 
             <!-- Funções para os mapas -->
             <script>
@@ -385,4 +380,21 @@
             async="async" defer="defer"></script>  
          </asp:View>
     </asp:MultiView>    
+    <script type="text/javascript">
+
+                function AjustarCep(campoCep) {
+                    var cep = campoCep.value;
+                    return cep.replace(/\.|\-/g, '');
+                }
+
+
+                 $(document).ready(function() {
+                    $("#txtCpfCnpj").mask("999.999.999-99", { placeholder: "" });
+                    $("#txtCep").mask("99999-099", { placeholder: "" });
+                     
+                  });
+
+
+            </script>
 </asp:Content>
+
