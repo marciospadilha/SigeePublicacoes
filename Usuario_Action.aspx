@@ -202,7 +202,7 @@
                                 </div>
                                 <asp:Label runat="server" CssClass="col-sm-2 col-sm-2 alignRight"  ID="labelSenha" >Senha:</asp:Label>
                                 <div class="col-sm-4">
-                                    <asp:TextBox runat="server" ID="txtSenha" CssClass="form-control" required="required"></asp:TextBox>
+                                    <asp:TextBox runat="server" ID="txtSenha" CssClass="form-control" TextMode="Password" required="required"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
