@@ -15,8 +15,9 @@
             <div class="row">
                 <div class="col-lg-11">
                     <div class="form-panel">
+                         <h4 class="mb title">Cadastro de Despesas</h4>
                         <div class="form-group">
-                           <asp:Button ID="btnIncluir" runat="server" Text="Nova Despesa" CssClass="btn btn-primary" OnClick="btnIncluir_Click" />
+                           <asp:Button ID="btnIncluir" runat="server" Text="Novo" CssClass="btn btn-primary" OnClick="btnIncluir_Click" />
                         </div>
 
                         </div>
@@ -29,7 +30,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="form-panel">
-                        <h4 class="mb title">Relação de Despesas</h4>      
+                             
                         <div class="row" style="padding-bottom:10px;">
                            <div class="col-lg-10">
                                         <div class="form-group">

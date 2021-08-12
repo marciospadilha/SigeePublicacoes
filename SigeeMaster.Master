@@ -184,6 +184,14 @@
                                         </a>
                                     </li>
                                 </ul>
+                                 <ul class="sub">
+                                    <li>
+                                        <a href="<%# ResolveUrl("~/") %>TarefaMotivo.aspx">
+                                            <i class="fa fa-caret-right"></i>
+                                            Tarefa Motivo
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                             <!--Fim Cadastros-->
 
