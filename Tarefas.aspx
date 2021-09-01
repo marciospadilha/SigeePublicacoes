@@ -9,20 +9,23 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cphConteudoPrincipal" runat="server">
     <asp:MultiView runat="server" ID="multiview">
         <asp:View ID="view" runat="server">
+           
+            
             <div class="row mt">
                 <div class="col-lg-12">
                     <p style="text-align: center;">
-                        <asp:Button ID="btnIncluir" runat="server" Text="Incluir" CssClass="btn btn-primary" OnClick="btnIncluir_Click" />
+                        <asp:Button ID="btnIncluir" runat="server" Text="Nova Tarefa" CssClass="btn btn-primary" OnClick="btnIncluir_Click" />
                     </p>
                 </div>
             </div>
             <asp:Panel runat="server" ID="pnlBuscaPerfil" CssClass="row mt">
-                <div class="col-lg-12">
+                <div class="col-lg-12" style="padding-bottom:20px;">
                     <asp:DropDownList runat="server"  ID="ddlPerfil" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlPerfil_SelectedIndexChanged"></asp:DropDownList>
                 </div>
             </asp:Panel>
-
-            <asp:Literal runat="server" ID="ltlCalendario"></asp:Literal>
+            <div style="padding-bottom:40px;">
+                <asp:Literal runat="server" ID="ltlCalendario"></asp:Literal>
+             </div>
             <%--<iframe id="frame" src="Calendario.aspx" style="background-color: transparent; border: none; height: 800px; width: 100%"></iframe>
             --%>
             <%--<link rel="stylesheet" href="LTE/bootstrap/css/bootstrap.min.css" />

@@ -116,20 +116,34 @@
 
                          <div class="form-horizontal style-form">
                             <div class="form-group">
-                                <label class="col-sm-2 control-label" style="text-align:right">Status Visita:</label>
-                                <div class="col-sm-2" style="text-align:left"> 
-                                    <asp:DropDownList runat="server" ID="ListStatusVisita" CssClass="form-control" AppendDataBoundItems="true">
-                                        <asp:ListItem Text="Selecione" Value="1">Positiva</asp:ListItem>
-                                        <asp:ListItem Text="Selecione" Value="0">Negativa</asp:ListItem>
-                                    </asp:DropDownList>
-                                </div>
-
+                                 <asp:Label runat="server" ID="divStVisita"> 
+                                    <label class="col-sm-2 control-label" style="text-align:right">Status Visita:</label>
+                                    <div class="col-sm-2" style="text-align:left"> 
+                                        <asp:DropDownList runat="server" ID="ListStatusVisita" CssClass="form-control" AppendDataBoundItems="true">
+                                            <asp:ListItem Text="Selecione" Value="1">Positiva</asp:ListItem>
+                                            <asp:ListItem Text="Selecione" Value="0">Negativa</asp:ListItem>
+                                        </asp:DropDownList>
+                                    </div>
+                                </asp:Label>
                                 <label class="col-sm-2 col-sm-2 control-label" style="text-align:right;"> E-mail:</label>
                                 <div class="col-sm-4">
                                     <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" placeholder="email@email.com.br" type="email"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
+
+                         <asp:Label runat="server" ID="divTarefaMotivo"> 
+                         <div class="form-horizontal style-form">
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label" style="text-align:right;">Motivo:</label>
+                                <div class="col-sm-4"> 
+                                    <asp:DropDownList runat="server" ID="ListTarefaMotivo" CssClass="form-control" AppendDataBoundItems="true" >
+                                        <asp:ListItem Text="Selecione" Value="0"></asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
+                        </div>
+                       </asp:Label>
 
                     </div>
                 </div>
@@ -202,14 +216,30 @@
                     $("#txtDataCadastro").keyup(function () {
                         MascaraData(this, event);
                     });
+
+                    if ($("#cphConteudoPrincipal_ListStatusVisita").val()==1) {
+                        $("#cphConteudoPrincipal_ListTarefaMotivo").attr('disabled', 'disabled');
+                    }
+
+                    $("#cphConteudoPrincipal_ListStatusVisita").change(function () {
+                        if (this.value == 0) {
+                            $("#cphConteudoPrincipal_ListTarefaMotivo").removeAttr('disabled');
+                        } else {
+                            $("#cphConteudoPrincipal_ListTarefaMotivo").val("0");
+                            $("#cphConteudoPrincipal_ListTarefaMotivo").attr('disabled', 'disabled');
+                            
+                        }
+                    });
+
+
                 });
 
                 
             </script>
 
             <script>
-                var map;
 
+               var map;
                 window.onload = function () {
                     initMap();
                 }
