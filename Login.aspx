@@ -23,7 +23,7 @@
             <div class="row" style="text-align:center; padding-top:40px;">
                 <div class="col-lg-4"></div>
                     <div class="col-lg-4 loginNovo">
-
+                        
                     <form id="form1" runat="server" class="form-signin">
                 
                 
